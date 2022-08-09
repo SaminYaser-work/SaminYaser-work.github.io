@@ -29,7 +29,7 @@ params:
   showThemeSwitcher: true
   defaultDarkTheme: false
   moveFooterToHeader: false
-  # navTitleText: Cupper Theme
+  navTitleText: Samin Yaser
   logoAlt: An alternative text description of the logo
   customCss:
     - css/custom_01.css
