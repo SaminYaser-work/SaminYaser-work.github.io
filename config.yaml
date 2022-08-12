@@ -1,10 +1,10 @@
 baseURL: https://SaminYaser-work.github.io
 languageCode: en-us
 defaultContentLanguage: en
-title: Cupper
+title: Samin Yaser
 theme: cupper-hugo-theme
 googleAnalytics: UA-123456789-1
-disqusShortname: yourdiscussshortname
+disqusShortname: saminyaser
 enableGitInfo: true
 
 taxonomies:
@@ -49,12 +49,16 @@ menu:
     - name: Tags
       url: /tags/
       weight: 3
-    - name: About
-      url: /about/
+    - name: Projects
+      url: /projects/
       weight: 4
+    - name: Download CV
+      url: /resume.pdf
+      weight: 5
+      hrefTargetBlank: true
     - name: RSS
       url: /index.xml
-      weight: 5
+      weight: 6
 
 markup:
   defaultMarkdownHandler: goldmark
