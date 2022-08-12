@@ -1,7 +1,7 @@
 ---
 title: "Test"
 date: 2022-08-10T18:37:53+06:00
-draft: false
+draft: true
 tags: ["test"]
 ---
 

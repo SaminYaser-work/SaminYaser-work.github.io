@@ -1,7 +1,7 @@
 ---
-title: "Generating Word Cloud from Bengali Text"
+title: "Generating Word Cloud from Bengali Text using Python"
 date: 2022-08-10T18:49:26+06:00
-draft: true
+draft: false
 tags: ["python", "wordcloud", "Bengali", "NLP"]
 toc: true
 ---
@@ -14,14 +14,17 @@ command="Resize"
 options="700x" >}}
 
 ## Introduction
+Word cloud is a visual representation of a set of words. It is a useful tool for understanding the frequency of words in a body of text. Word clouds are often used to describe the contents of a dataset in various **NLP** related projects.
 
+In this tutorial, we will generate a word cloud from a Bengali dataset using `wordcloud` library in python. We will be working with a dataset consists of Wikipedia articles, most commonly known as the **Wikipedia Dataset**. It can be downloaded from [here](https://huggingface.co/datasets/wikipedia). You can also get it from [here](https://dumps.wikimedia.org/), but in this case you have to manually **extract and clean** the articles from the XML file. Maybe I'll write a tutorial on how to do that in the future.
+
+Note that it is a big dataset, so the code in this tutorial is optimized for memory.
 
 ## Importing Libraries
 First, we import the necessary libraries.
 
 ```python
 import re
-from tqdm import tqdm
 import numpy as np
 from PIL import Image
 from wordcloud import WordCloud, ImageColorGenerator
@@ -32,12 +35,16 @@ from collections import Counter
 
 `numpy` and `PIL` are needed if you want generate the word cloud in a specific shape, so it can be ommitted if your are not interested in that.
 
-`tqdm` is to show a nice progress bar.
-
 `Counter` is recommended if you have a large dataset and low on RAM.
 
 ## Removing Stop Words
-Stop words are words which are not important to the meaning of the text. They are usually used most frequently in the text. So, generating a wordcloud without filtering stop words will not give us the most meaningful result.
+Stop words are words which are not important to the meaning of the text. They are usually used most frequently in the text. So, generating a wordcloud with stop words will not give us the most meaningful result. Look at the figure below and see for yourself.
+
+{{< figureCupper
+img="wc3.png" 
+caption="Bengali Wordcloud with stop words"
+command="Resize" 
+options="700x" >}}
 
 Easiest way to remove stop words are to use [bnlp-toolkit](https://pypi.org/project/bnlp-toolkit/) library. This is how you do it.
 
@@ -132,7 +139,7 @@ def plot_world_cloud(text):
 plot_world_cloud(' '.join([i[0] for i in most_common_words]))
 ```
 {{< warning >}}
-Passing `regex = r"([\S]+)"` to the `wordcloud` function is crucial. Otherwise, your output image might look something like this where conjunctive letters are broken.
+Passing `regex = r"([\S]+)"` to the `wordcloud` function is **crucial**. Otherwise, your output image might look something like this where conjunctive letters are broken.
 {{< /warning >}}
 
 {{< figureCupper
@@ -142,4 +149,7 @@ command="Resize"
 options="700x" >}}
 
 ## Alternatives for Word Cloud
-You might also want check out [this](https://www.kaggle.com/code/paultimothymooney/most-common-words-on-kaggle-wordcloud-bargraph/notebook) where a guy generated a bar chart out of the most common words in his dataset. This may not be good looking as a word cloud, but it is better to view it statistically.
+You might also want check out [this](https://www.kaggle.com/code/paultimothymooney/most-common-words-on-kaggle-wordcloud-bargraph/notebook) where a guy generated a bar chart out of the most common words in his dataset. This may not be as good looking as a word cloud, but if you want go a more statistical route, this is the way to go.
+
+## Conclusion
+This is a good starting point for generating word clouds. Hope it helped you. Heres a Github [gist]() with the code.
