@@ -94,14 +94,13 @@ most_common_words = counter.most_common(2000) # Use 2000 most common words to ge
 ## Generating the Word Cloud ☁️
 Finally, we can generate the word cloud. We are also giving it the shape of Bangladeshi flag.
 
-I also suggest getting a Bengali font. I am using [Nirmala UI](https://www.wfonts.com/font/nirmala-ui), which is the default Bengali font in _Windows_.
-
-
 {{< figureCupper
 img="bd.jpg" 
 caption="Flag of Bangladesh"
 command="Resize" 
 options="300x" >}}
+
+I also suggest getting a Bengali font. I am using [Nirmala UI](https://www.wfonts.com/font/nirmala-ui), which is the default Bengali font in _Windows_.
 
 ```python
 regex = r"([\S]+)"
@@ -152,4 +151,4 @@ options="700x" >}}
 You might also want check out [this](https://www.kaggle.com/code/paultimothymooney/most-common-words-on-kaggle-wordcloud-bargraph/notebook) where a guy generated a bar chart out of the most common words in his dataset. This may not be as good looking as a word cloud, but if you want go a more statistical route, this is the way to go.
 
 ## Conclusion
-This is a good starting point for generating word clouds. Hope it helped you. Heres a Github [gist]() with the code.
+This is a good starting point for generating word clouds. Hope it helped you. Heres a Github [gist](https://gist.github.com/SaminYaser-work/11ea93a474b2da7e843b83dccaf1bbcc) with the code.
